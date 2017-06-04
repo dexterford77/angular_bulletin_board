@@ -18,6 +18,18 @@ BB.controller("PostsCtrl", ["$scope", "PostService", "CommentService",
     }
 }]);
 
+BB.controller("RecentCommentsCtrl", ['$scope', 'CommentService',
+  function($scope, CommentService){
+    $scope.init = function(){
+      $scope.getComments();
+    }
+    $scope.getComments = function(){
+      CommentService.all().then(function(comments){
+        $scope.comments = comments;
+      })
+    }
+}]);
+
 BB.service("_", ["$window", function($window){
   return $window._
 }]);
@@ -50,18 +62,30 @@ BB.service("PostService", ['$http', '_', 'CommentService',
     }
 }]);
 
-BB.service("CommentService", ['$http',
-  function($http){
+BB.service("CommentService", ['$http', '_',
+  function($http, _){
     var _comments;
     this.all = function(){
       var endpoint = "data/comments.json";
       return $http.get(endpoint)
       .then(function(response){
-        _comments = response.data;
+        _comments = _.map(response.data, function(comment){
+          return comment
+        })
         return _comments
       })
     }
     this.getCommentById = function(id){
-      return _comments[id]
+      return _comments[id-1]
     }
 }]);
+
+BB.directive("comment", function(){
+  return {
+    templateUrl: "comment.html",
+    restrict: "E",
+    scope: {
+      comment: "="
+    }
+  }
+});

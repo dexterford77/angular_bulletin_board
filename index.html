@@ -10,36 +10,29 @@
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.3/angular.min.js"></script>
 </head>
 
-<body ng-controller="PostsCtrl" ng-init="init()" ng-cloak class="container-fluid">
+<body ng-cloak class="container-fluid">
 
 <h1 class="text-center">NoSQL Bulletin Board</h1>
 
 <div class="row">
-  <aside class="col-md-4 recent-comments-container">
+
+  <aside class="col-md-4 recent-comments-container" ng-controller="RecentCommentsCtrl" ng-init="init()">
+
     <h3>Recent Comments</h3>
+    <comment ng-repeat="comment in comments | orderBy : '-created_at'" comment="comment">
+    </comment>
 
   </aside>
-  <section class="col-md-8 posts-container">
-    <h3>Posts</h3>
 
+  <section class="col-md-8 posts-container" ng-controller="PostsCtrl" ng-init="init()">
+
+    <h3>Posts</h3>
     <article ng-repeat="post in posts">
       <h2>{{post.title}}</h2>
       <p>Posted on {{post.created_at | date : "longDate"}} by {{post.author}}</p>
       <p>{{post.body}}</p>
-      <article ng-repeat="comment in post.comments | orderBy : '-vote_score'">
-        <div class="row">
-          <div class="col-md-1">
-            <span class="glyphicon glyphicon-arrow-up" aria-hidden="true"></span>
-            <span class="glyphicon glyphicon-arrow-down" aria-hidden="true"></span>
-            <h3 class="vote-score">{{comment.vote_score}}</h3>
-          </div>
-          <div class="col-md-11">
-            <h4>{{comment.author}}</h4>
-            <small>Commented on {{comment.created_at | date : "longDate"}},</small>
-          </div>
-        </div>
-        <p>{{comment.body}}</p>
-      </article>
+      <comment ng-repeat="comment in post.comments | orderBy : '-vote_score'" comment="comment">
+      </comment>
     </article>
 
   </section>
