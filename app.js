@@ -1,0 +1,1 @@
+var bulletinBoard = angular.module("bulletinBoard", []);
