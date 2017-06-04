@@ -1,0 +1,28 @@
+.posts-container {
+  padding-right: 20%;
+}
+
+.recent-comments-container {
+  padding-left: 7%;
+}
+
+h4 {
+  margin-bottom: 0;
+}
+
+small {
+  margin-bottom: 20px;
+}
+
+.vote-score {
+  
+}
+
+.glyphicon:hover {
+  color: blue;
+  cursor: pointer;
+}
+
+.glyphicon:active {
+  color: red;
+}

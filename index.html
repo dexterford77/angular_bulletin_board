@@ -1,16 +1,52 @@
 <!DOCTYPE html>
-<html lang="en" ng-app="bulletinBoard">
+<html lang="en" ng-app="BB">
 <head>
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>Bulletin Board</title>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+  <link rel="stylesheet" href="main.css">
+  <script type="text/javascript" src='https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js'></script>
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.3/angular.min.js"></script>
 </head>
 
-<body>
+<body ng-controller="PostsCtrl" ng-init="init()" ng-cloak class="container-fluid">
+
+<h1 class="text-center">NoSQL Bulletin Board</h1>
+
+<div class="row">
+  <aside class="col-md-4 recent-comments-container">
+    <h3>Recent Comments</h3>
+
+  </aside>
+  <section class="col-md-8 posts-container">
+    <h3>Posts</h3>
+
+    <article ng-repeat="post in posts">
+      <h2>{{post.title}}</h2>
+      <p>Posted on {{post.created_at | date : "longDate"}} by {{post.author}}</p>
+      <p>{{post.body}}</p>
+      <article ng-repeat="comment in post.comments | orderBy : '-vote_score'">
+        <div class="row">
+          <div class="col-md-1">
+            <span class="glyphicon glyphicon-arrow-up" aria-hidden="true"></span>
+            <span class="glyphicon glyphicon-arrow-down" aria-hidden="true"></span>
+            <h3 class="vote-score">{{comment.vote_score}}</h3>
+          </div>
+          <div class="col-md-11">
+            <h4>{{comment.author}}</h4>
+            <small>Commented on {{comment.created_at | date : "longDate"}},</small>
+          </div>
+        </div>
+        <p>{{comment.body}}</p>
+      </article>
+    </article>
+
+  </section>
+</div>
 
 </body>
 
-<script src="js/app.js"></script>
+<script src="app.js"></script>
 
 </html>
