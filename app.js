@@ -83,7 +83,6 @@ BB.service("PostService", ['$http', '_', 'CommentService',
       _post = _posts[index];
       _post.comment_ids.push(comment.id);
       _post.comments.push(comment);
-      console.log(_posts);
     }
 }]);
 
@@ -91,6 +90,19 @@ BB.service("CommentService", ['$http', '_',
   function($http, _){
     var _comments;
     var _id;
+    var _extendComment = function(comment){
+      comment.upvote = function(){
+        comment.vote_score += 1;
+      }
+      comment.downvote = function(){
+        comment.vote_score -= 1;
+      }
+    }
+    var _extendComments = function(comments){
+      _.each(comments, function(comment){
+        _extendComment(comment);
+      })
+    }
     var _nextId = function(){
       if(!_id){
         if(_.isEmpty(_comments)){
@@ -109,7 +121,9 @@ BB.service("CommentService", ['$http', '_',
         var endpoint = "data/comments.json";
         return $http.get(endpoint)
         .then(function(response){
-          _comments = _.map(response.data, function(comment){
+          _comments = response.data;
+          _extendComments(_comments);
+          _comments = _.map(_comments, function(comment){
             return comment
           })
           return _comments
@@ -128,6 +142,7 @@ BB.service("CommentService", ['$http', '_',
       var nextId = _nextId();
       comment.id = nextId;
       _id += 1;
+      _extendComment(comment);
       _comments.push(comment);
       return new Promise(function(resolve){ resolve(comment) })
     }
