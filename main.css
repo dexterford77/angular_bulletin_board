@@ -1,5 +1,5 @@
 .posts-container {
-  padding-right: 20%;
+  padding-right: 17%;
 }
 
 .recent-comments-container {
@@ -14,10 +14,6 @@ small {
   margin-bottom: 20px;
 }
 
-.vote-score {
-  
-}
-
 .glyphicon:hover {
   color: blue;
   cursor: pointer;
@@ -25,4 +21,10 @@ small {
 
 .glyphicon:active {
   color: red;
+}
+
+form {
+  border: solid 1px black;
+  margin-right: 100px;
+  padding: 10px;
 }
