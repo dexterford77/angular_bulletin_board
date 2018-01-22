@@ -3,25 +3,16 @@
 Overview
 --------
 
-Experience
-
-the 
-exhilaration
-
-of
-
-commenting
-
-on
-
-utter
-
-and
-complete
-
-gibberish
-
-.
+Experience  
+the  
+exhilaration  
+of  
+commenting  
+on  
+utter  
+and  
+complete  
+gibberish.
 
 ### Technical Notes
 
