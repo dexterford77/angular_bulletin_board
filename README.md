@@ -18,7 +18,7 @@ gibberish
 
 ### Technical Notes
 
-Use AngularJS and NoSQL data modeling to manage front-end commenting data.
+Use AngularJS and NoSQL data modeling to manage front-end commenting/upvoting data. Upvoting alters comment order in the center, while date determines comment order in the "Recent Comments" sidebar.
 
 Launched Demo
 --------
