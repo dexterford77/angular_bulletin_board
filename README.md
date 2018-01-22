@@ -7,12 +7,14 @@ Experience
 the  
 exhilaration  
 of  
+upvoting  
+and  
 commenting  
 on  
 utter  
 and  
 complete  
-gibberish.
+gibberish
 
 ### Technical Notes
 
