@@ -1,12 +1,24 @@
-<div class="row">
-  <div class="col-md-1 score-container">
-    <span class="glyphicon glyphicon-arrow-up" aria-hidden="true" ng-click="comment.upvote()"></span>
-    <span class="glyphicon glyphicon-arrow-down" aria-hidden="true" ng-click="comment.downvote()"></span>
-    <h3>{{comment.vote_score}}</h3>
-  </div>
-  <div class="col-md-11">
-    <h4>{{comment.author}}</h4>
-    <small>Commented on {{comment.created_at | date : "longDate"}},</small>
+<div class="row clearfix">
+  <div class="col-md-12 comment-outer-header">
+
+    <div class="arrows pull-left">
+      <span class="glyphicon glyphicon-arrow-up" aria-hidden="true" ng-click="comment.upvote()"></span>
+      <br>
+      <span class="glyphicon glyphicon-arrow-down" aria-hidden="true" ng-click="comment.downvote()"></span>
+    </div>
+    <div class="score pull-left">
+      {{comment.vote_score}}
+    </div>
+
+    <div class="comment-inner-header">
+      <h4>{{comment.author}}</h4>
+      <small>Commented on {{comment.created_at | date : "longDate"}}</small>
+    </div>
+    
   </div>
 </div>
-<p>{{comment.body}}</p>
+<div class="row">
+  <div class="col-md-12">
+    <p>{{comment.body}}</p>
+  </div>
+</div>

@@ -14,6 +14,30 @@ small {
   margin-bottom: 20px;
 }
 
+.arrows {
+  width: 5%;
+  margin-top: 10px;
+}
+
+.score {
+  width: 16%;
+  font-size: 30px;
+  margin-top: 10px;
+  margin-left: 7px;
+}
+
+.comment-inner-header {
+  width: 85%;
+}
+
+article .arrows {
+  width: 3%;
+}
+
+article .score {
+  width: 10%;
+}
+
 .glyphicon:hover {
   color: blue;
   cursor: pointer;
@@ -27,4 +51,9 @@ form {
   border: solid 1px black;
   margin-right: 100px;
   padding: 10px;
+}
+
+.form-label {
+  margin-top: 5px;
+  margin-bottom: -20px;
 }

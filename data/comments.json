@@ -2,15 +2,15 @@
   "1": {
     "id": 1,
     "created_at": "2017-06-01",
-    "author": "Lauren Faust",
+    "author": "Lorenzo Faust",
     "body": "Simultaneously but with fantastic radiance my entire nervous body stiromafumulates erregoginously without bounded vibratoform malefulofusillance.",
-    "vote_score": 2,
+    "vote_score": -12,
     "post_id": 1
   },
   "2": {
     "id": 2,
     "created_at": "2017-06-02",
-    "author": "Captain Beefheart",
+    "author": "Don Van Vliet",
     "body": "Yeah, but you've gotta wait until I say \"Also, a tin... teardrop.\"",
     "vote_score": 1,
     "post_id": 1
@@ -18,9 +18,9 @@
   "3": {
     "id": 3,
     "created_at": "2017-06-03",
-    "author": "James Joyce",
+    "author": "Stanislaus Joyce",
     "body": "I'm suing.",
-    "vote_score": 5,
+    "vote_score": 10,
     "post_id": 1
   }
 }
